@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion, cubicBezier } from "framer-motion";
+import { h2 } from "framer-motion/m";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -22,15 +23,17 @@ const cardVariants = {
   },
 };
 const letterVariants = {
-  hidden: { opacity: 0, scale: 0.8, x: -10 },
+  hidden: { opacity: 0, y: 20, scale: 0.9 },
   show: (i: number) => ({
     opacity: 1,
+    y: 0,
     scale: 1,
-    x: 0,
     transition: {
-      delay: i * 0.07,
-      duration: 0.5,
-      ease: cubicBezier(0.17, 0.67, 0.83, 0.67),
+      delay: i * 0.15,
+      duration: 1.2,
+      ease: cubicBezier(0.16, 1, 0.3, 1),
+      opacity: { duration: 0.8 },
+      scale: { duration: 0.9, ease: cubicBezier(0.34, 1.2, 0.64, 1) },
     },
   }),
 };
@@ -67,7 +70,7 @@ export default function Services() {
               >
                 UI/UX DESIGN
               </motion.span>
-              <div className="w-full h-[1px] bg-white/40 my-2"></div>
+              <div className="w-full h-[1px] bg-white/40 my-2 m-2 "></div>
             </h2>
             <div className="flex flex-col justify-between">
               <motion.p
