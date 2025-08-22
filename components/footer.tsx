@@ -11,7 +11,7 @@ export default function Footer() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, ease: "easeOut" }}
         viewport={{ once: true }}
-        className="bg-gradient-to-r from-green-800 to-green-900 rounded-2xl p-16 text-center relative overflow-hidden flex flex-col items-center justify-center"
+        className="bg-gradient-to-r from-green-800 to-green-900 rounded-[3rem] p-16 text-center relative overflow-hidden flex flex-col items-center justify-center"
         style={{
           backgroundImage: `url('/footerBackground.png')`,
           backgroundSize: "cover",
