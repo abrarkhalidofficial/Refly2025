@@ -21,13 +21,17 @@ const cardVariants = {
     transition: { duration: 0.8, ease: cubicBezier(0.16, 1, 0.3, 1) },
   },
 };
-
 const letterVariants = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, scale: 0.8, x: -10 },
   show: (i: number) => ({
     opacity: 1,
-    y: 0,
-    transition: { delay: i * 0.05, duration: 0.4 },
+    scale: 1,
+    x: 0,
+    transition: {
+      delay: i * 0.07,
+      duration: 0.5,
+      ease: cubicBezier(0.17, 0.67, 0.83, 0.67),
+    },
   }),
 };
 
@@ -66,12 +70,21 @@ export default function Services() {
               <div className="w-full h-[1px] bg-white/40 my-2"></div>
             </h2>
             <div className="flex flex-col justify-between">
-              <p className="text-gray-300 text-sm leading-relaxed flex-grow">
+              <motion.p
+                className="text-gray-300 text-sm leading-relaxed flex-grow"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.6,
+                  delay: 0.3,
+                  ease: "easeOut",
+                }}
+              >
                 Elevate your digital frontier with AI-crafted interfaces that
-                captivate and convert. Our designs don’t just look stunning they
+                captivate and convert. Our designs don't just look stunning they
                 ignite user obsession with seamless, futuristic flow. Over 150
                 projects completed, transforming 120+ brands.
-              </p>
+              </motion.p>
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -104,17 +117,26 @@ export default function Services() {
                 initial="hidden"
                 animate="show"
               >
-                VIDEO EDITING{" "}
+                VIDEO EDITING
               </motion.span>
               <div className="w-full h-[1px] bg-white/40 my-2 m-2 "></div>
             </h2>
             <div className="flex flex-col justify-between">
-              <p className="text-gray-300 text-sm leading-relaxed flex-grow">
-                Unleash your brand’s cosmic potential. We fuse AI precision with
+              <motion.p
+                className="text-gray-300 text-sm leading-relaxed flex-grow"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.6,
+                  delay: 0.3,
+                  ease: "easeOut",
+                }}
+              >
+                Unleash your brand's cosmic potential. We fuse AI precision with
                 bold creativity, forging identities and strategies that dominate
                 markets and soar beyond the competition. Proudly delivered 200+
                 campaigns for 85 clients.
-              </p>
+              </motion.p>
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -147,17 +169,26 @@ export default function Services() {
                 initial="hidden"
                 animate="show"
               >
-                BRANDING MARKETING
+                BRANDING & MARKETING
               </motion.span>
               <div className="w-full h-[1px] bg-white/40 my-2 m-2 "></div>
             </h2>
             <div className="flex flex-col justify-between">
-              <p className="text-gray-300 text-sm leading-relaxed flex-grow">
-                Unleash your brand’s cosmic potential. We fuse AI precision with
+              <motion.p
+                className="text-gray-300 text-sm leading-relaxed flex-grow"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.6,
+                  delay: 0.3,
+                  ease: "easeOut",
+                }}
+              >
+                Unleash your brand's cosmic potential. We fuse AI precision with
                 bold creativity, forging identities and strategies that dominate
                 markets and soar beyond the competition. Proudly delivered 200+
                 campaigns for 85 clients.
-              </p>
+              </motion.p>
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
