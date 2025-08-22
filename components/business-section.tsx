@@ -1,5 +1,8 @@
+"use client";
+
 import { Card, CardContent } from "@/components/card";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { motion } from "framer-motion";
+import { Sparkles } from "lucide-react";
 
 export default function Home() {
   const cards = [
@@ -35,78 +38,113 @@ export default function Home() {
     },
   ];
 
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: { staggerChildren: 0.25 },
+    },
+  };
+
+  const fadeUp = {
+    hidden: { opacity: 0, y: 40 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+  };
+
   return (
-    <div className="min-h-screen bg-white p-8 urbanist">
+    <div className="min-h-screen bg-gray-50 p-8 font-['Urbanist']">
       <section className="p-8 py-16 max-w-8xl mx-auto">
-        <div className="mb-4">
-          <span className="text-sm text-gray-600 bg-white px-4 py-2 rounded-full border">
+        <div className="mb-6">
+          <span className="text-sm text-black  px-5 py-2 rounded-full border border-indigo-200 font-medium">
             Business & Approach
           </span>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
-          <div>
-            <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-              How We Build Solutions That Inspire Growth
-            </h1>
-          </div>
-          <div>
-            <p className="text-gray-600 text-lg leading-relaxed">
-              We are a creative studio with passion for innovation and we're on
-              a journey to help you unlock the best version of your brand.
-            </p>
-          </div>
-        </div>
-      </section>
+        <motion.div
+          variants={container}
+          initial="hidden"
+          animate="show"
+          className="grid lg:grid-cols-2 gap-12 items-start"
+        >
+          <motion.h1
+            variants={fadeUp}
+            className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight"
+          >
+            Building <span className="text-black">Solutions</span> <br /> That
+            Inspire <span className="text-black">Growth</span>
+          </motion.h1>
 
+          <motion.p
+            variants={fadeUp}
+            className="text-gray-600 text-lg leading-relaxed"
+          >
+            We are a creative studio passionate about innovation, helping brands
+            unlock their full potential with smart strategies, stunning design,
+            and impactful execution.
+          </motion.p>
+        </motion.div>
+      </section>
       <section className="px-6 max-w-8xl mx-auto">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <motion.div
+          variants={container}
+          initial="hidden"
+          animate="show"
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
           {cards.map((card) => (
-            <Card
+            <motion.div
               key={card.id}
-              className={`relative border border-gray-200 transition-all group
-                bg-transparent  hover:bg-gray-900 rounded-4xl urbanist`}
+              variants={fadeUp}
+              whileHover={{ scale: 1.04 }}
+              transition={{ type: "spring", stiffness: 300 }}
             >
-              <CardContent className="pl-6 pr-6 relative z-10">
-                <div className="absolute top-4 right-4">
-                  <div
-                    className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors
-                        ${
-                          !card.id ? "" : "bg-purple-100"
-                        } group-hover:bg-purple-500`}
+              <Card
+                className="relative border border-gray-200 bg-white transition-all group
+                rounded-3xl shadow-md hover:shadow-xl hover:border-indigo-500/50 
+                hover:bg-gradient-to-br hover:from-black hover:to-black overflow-hidden"
+              >
+                <CardContent className="p-8 relative z-10">
+                  <motion.div
+                    whileHover={{ rotate: 10 }}
+                    className="absolute top-6 right-6"
                   >
-                    <svg
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth={2}
-                      viewBox="0 0 24 24"
-                      className="w-6 h-6 transition-colors text-black group-hover:text-white"
+                    <div
+                      className="w-12 h-12 rounded-full flex items-center justify-center 
+                      bg-indigo-100 text-indigo-600 group-hover:bg-white group-hover:text-purple-600
+                      transition-colors shadow-md"
                     >
-                      <path d="M12 2v2m0 16v2m10-10h-2M4 12H2m15.07-7.07l-1.41 1.41M6.34 17.66l-1.41 1.41M17.66 17.66l-1.41-1.41M6.34 6.34L4.93 4.93M12 8a4 4 0 100 8 4 4 0 000-8z" />
-                    </svg>
-                  </div>
-                </div>
-                <div className="text-2xl mb-4 text-gray-400 group-hover:text-gray-300">
-                  {card.id}
-                </div>
-                <div className="pt-10">
-                  <h3
+                      <Sparkles className="w-6 h-6" />
+                    </div>
+                  </motion.div>
+                  <motion.div
+                    variants={fadeUp}
+                    className="text-3xl mb-6 font-bold text-gray-300 group-hover:text-white/70"
+                  >
+                    {card.id}
+                  </motion.div>
+                  <motion.h3
+                    variants={fadeUp}
                     className="text-2xl font-semibold mb-4 transition-colors
-                  text-gray-900 group-hover:text-white"
+                    text-gray-900 group-hover:text-white"
                   >
                     {card.title}
-                  </h3>
-                  <p
-                    className="text-sm leading-relaxed transition-colors
-                  text-gray-600 group-hover:text-gray-300"
+                  </motion.h3>
+                  <motion.p
+                    variants={fadeUp}
+                    className="text-base leading-relaxed transition-colors
+                    text-gray-600 group-hover:text-gray-100"
                   >
                     {card.desc}
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
+                  </motion.p>
+                </CardContent>
+              </Card>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </section>
     </div>
   );
