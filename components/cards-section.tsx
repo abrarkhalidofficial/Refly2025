@@ -40,7 +40,6 @@ export default function Services() {
         initial="hidden"
         animate="show"
       >
-        {/* Card 1 */}
         <motion.div
           className="relative rounded-4xl  overflow-hidden group bg-neutral-500 p-6 flex flex-col justify-between w-[39%] mb-6 mr-4"
           variants={cardVariants}
@@ -84,7 +83,6 @@ export default function Services() {
           </div>
         </motion.div>
 
-        {/* Card 2 */}
         <motion.div
           className="relative rounded-4xl overflow-hidden group bg-neutral-500 p-6 flex flex-col justify-between w-[60%] mb-6"
           variants={cardVariants}
@@ -128,7 +126,6 @@ export default function Services() {
           </div>
         </motion.div>
 
-        {/* Card 3 */}
         <motion.div
           className="relative rounded-4xl overflow-hidden group bg-neutral-500 p-6 flex flex-col justify-between w-[70%] mb-6"
           variants={cardVariants}
@@ -171,8 +168,6 @@ export default function Services() {
             </div>
           </div>
         </motion.div>
-
-        {/* Hire Us Button */}
         <motion.div
           className="w-[28%] flex items-center justify-center"
           variants={cardVariants}
