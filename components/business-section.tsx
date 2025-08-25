@@ -4,7 +4,7 @@ import { Card, CardContent } from "@/components/card";
 import { motion, Variants } from "framer-motion";
 import { Sparkles } from "lucide-react";
 
-export default function Home() {
+export default function BusinessSection() {
   const cards = [
     {
       id: "01",
