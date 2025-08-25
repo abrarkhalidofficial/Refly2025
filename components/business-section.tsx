@@ -51,15 +51,15 @@ export default function Home() {
     show: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: "easeOut" },
+      transition: { duration: 0.6, ease: ["easeOut"] },
     },
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 p-8 font-['Urbanist']">
+    <div className="min-h-screen p-8 font-['Urbanist']">
       <section className="p-8 py-16 max-w-8xl mx-auto">
         <div className="mb-6">
-          <span className="text-sm text-black  px-5 py-2 rounded-full border border-indigo-200 font-medium">
+          <span className="text-sm text-white px-5 py-2 rounded-full border border-indigo-700 font-medium">
             Business & Approach
           </span>
         </div>
@@ -72,15 +72,15 @@ export default function Home() {
         >
           <motion.h1
             variants={fadeUp}
-            className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight"
+            className="text-4xl lg:text-6xl font-bold text-white mb-6 leading-tight "
           >
-            Building <span className="text-black">Solutions</span> <br /> That
-            Inspire <span className="text-black">Growth</span>
+            Building Solutions
+            <br /> That InspireGrowth
           </motion.h1>
 
           <motion.p
             variants={fadeUp}
-            className="text-gray-600 text-lg leading-relaxed"
+            className="text-gray-300 text-lg leading-relaxed"
           >
             We are a creative studio passionate about innovation, helping brands
             unlock their full potential with smart strategies, stunning design,
@@ -103,9 +103,9 @@ export default function Home() {
               transition={{ type: "spring", stiffness: 300 }}
             >
               <Card
-                className="relative border border-gray-200 bg-white transition-all group
+                className="relative border border-gray-500 bg-black transition-all group
                 rounded-3xl shadow-md hover:shadow-xl hover:border-indigo-500/50 
-                hover:bg-gradient-to-br hover:from-black hover:to-black overflow-hidden"
+                hover:bg-gradient-to-br hover:from-indigo-950 hover:to-black overflow-hidden"
               >
                 <CardContent className="p-8 relative z-10">
                   <motion.div
@@ -114,7 +114,7 @@ export default function Home() {
                   >
                     <div
                       className="w-12 h-12 rounded-full flex items-center justify-center 
-                      bg-indigo-100 text-indigo-600 group-hover:bg-white group-hover:text-purple-600
+                      bg-indigo-900 text-indigo-400 group-hover:bg-black group-hover:text-purple-400
                       transition-colors shadow-md"
                     >
                       <Sparkles className="w-6 h-6" />
@@ -122,21 +122,21 @@ export default function Home() {
                   </motion.div>
                   <motion.div
                     variants={fadeUp}
-                    className="text-3xl mb-6 font-bold text-gray-300 group-hover:text-white/70"
+                    className="text-3xl mb-6 font-bold text-white group-hover:text-indigo-300"
                   >
                     {card.id}
                   </motion.div>
                   <motion.h3
                     variants={fadeUp}
                     className="text-2xl font-semibold mb-4 transition-colors
-                    text-gray-900 group-hover:text-white"
+                    text-white group-hover:text-indigo-200"
                   >
                     {card.title}
                   </motion.h3>
                   <motion.p
                     variants={fadeUp}
                     className="text-base leading-relaxed transition-colors
-                    text-gray-600 group-hover:text-gray-100"
+                    text-gray-400 group-hover:text-gray-200"
                   >
                     {card.desc}
                   </motion.p>
