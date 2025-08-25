@@ -56,8 +56,33 @@ const HeroSection: React.FC = () => {
           width: "100%",
           overflow: "hidden",
           marginTop: "2rem",
+          position: "relative",
         }}
       >
+        <div
+          style={{
+            position: "absolute",
+            left: 0,
+            top: 0,
+            width: "13em",
+            height: "100%",
+            background: "linear-gradient(to right, black 20%, transparent)",
+            pointerEvents: "none",
+            zIndex: 1,
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            right: 0,
+            top: 0,
+            width: "13em",
+            height: "100%",
+            background: "linear-gradient(to left, black 20%, transparent)",
+            pointerEvents: "none",
+            zIndex: 1,
+          }}
+        />
         <div
           style={{
             display: "flex",
