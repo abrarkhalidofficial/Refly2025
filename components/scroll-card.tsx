@@ -16,14 +16,17 @@ const HorizontalScrollCarousel = () => {
 
   return (
     <section ref={targetRef} className="relative h-[300vh]">
-      <div className="p-0 pl-12 mx-auto relative z-10 w-full pt-10 md:pt-20 px-2">
+      <div
+        className="p-0 pl-12 mx-auto relative z-10 w-full pt-10 md:pt-20 px-2"
+        style={{ marginBottom: "-5em" }}
+      >
         <div className="flex justify-start">
           <motion.h1
             initial={{ opacity: 0, scale: 0.9, y: 40 }}
             whileInView={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: true, amount: 0.3 }}
-            className="text-4xl md:text-7xl text-left text-white fontClass"
+            className="text-3xl md:text-6xl text-left text-white fontClass"
           >
             Hire For
             <span className="text-[#8D8D8D]"> Us</span>{" "}
