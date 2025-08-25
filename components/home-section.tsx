@@ -42,8 +42,8 @@ const HeroSection: React.FC = () => {
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        minHeight: "70vh",
         width: "100%",
+        minHeight: "100vh",
       }}
     >
       <img
@@ -55,7 +55,7 @@ const HeroSection: React.FC = () => {
         style={{
           width: "100%",
           overflow: "hidden",
-          marginTop: "2rem",
+          marginTop: "9rem",
           position: "relative",
         }}
       >
@@ -105,11 +105,11 @@ const HeroSection: React.FC = () => {
         </div>
         <style>
           {`
-        @keyframes scrollLogos {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
-        }
-          `}
+      @keyframes scrollLogos {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+        `}
         </style>
       </div>
     </section>
