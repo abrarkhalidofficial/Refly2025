@@ -3,11 +3,7 @@ import { motion, useTransform, useScroll } from "framer-motion";
 import { useRef } from "react";
 
 const ScrollCard = () => {
-  return (
-    <div className="bg-neutral-800">
-      <HorizontalScrollCarousel />
-    </div>
-  );
+  return <HorizontalScrollCarousel />;
 };
 
 const HorizontalScrollCarousel = () => {
@@ -19,7 +15,29 @@ const HorizontalScrollCarousel = () => {
   const x = useTransform(scrollYProgress, [0, 1], ["1%", "-95%"]);
 
   return (
-    <section ref={targetRef} className="relative h-[300vh] bg-neutral-900">
+    <section ref={targetRef} className="relative h-[300vh]">
+      <div className="p-4 mx-auto relative z-10 w-full pt-10 md:pt-20 px-2">
+        <motion.h1
+          initial={{ opacity: 0, scale: 0.9, y: 40 }}
+          whileInView={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.3 }}
+          className="text-4xl md:text-7xl text-center text-white fontClass"
+        >
+          What We Do
+        </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeInOut", delay: 0.2 }}
+          viewport={{ once: true, amount: 0.3 }}
+          className="mt-4 text-lg font-normal text-neutral-300 max-w-lg text-center mx-auto px-4 urbanist"
+        >
+          Elevate your digital frontier with AI-crafted interfaces that
+          captivate and convert.
+        </motion.p>
+      </div>
       <div className="sticky top-0 flex h-screen items-center overflow-hidden">
         <motion.div style={{ x }} className="flex gap-4">
           {cards.map((card) => {
