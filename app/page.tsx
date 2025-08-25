@@ -4,12 +4,14 @@ import CardsSection from "@/components/cards-section";
 import DesignSection from "@/components/design-section";
 import BusinessSection from "@/components/business-section";
 import Footer from "@/components/footer";
+import ScrollCard from "@/components/scroll-card";
 
 export default function Home() {
   return (
     <>
       <HeroSection />
       <AboutSection />
+      {/* <ScrollCard /> */}
       <CardsSection />
       <DesignSection />
       <BusinessSection />
