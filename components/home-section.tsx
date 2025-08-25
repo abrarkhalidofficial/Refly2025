@@ -91,6 +91,7 @@ const HeroSection: React.FC = () => {
             alignItems: "center",
             animation: "scrollLogos 20s linear infinite",
             minWidth: "max-content",
+            marginBottom: "5em",
           }}
         >
           {logos.map((logo, idx) => (
