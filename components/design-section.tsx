@@ -3,44 +3,6 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-const textVariants = {
-  hidden: { opacity: 0, y: 50 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.8, ease: ["easeInOut"] },
-  },
-};
-
-const containerVariants = {
-  hidden: {},
-  show: {
-    transition: {
-      staggerChildren: 0.2,
-      delayChildren: 0.2,
-    },
-  },
-};
-
-const imageVariants = {
-  hidden: { opacity: 0, y: 40, scale: 0.9 },
-  show: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: { duration: 0.8, ease: ["easeOut"] },
-  },
-};
-const variants = {
-  active: {
-    scale: 1.1,
-    transition: { duration: 0.6 },
-  },
-  inactive: {
-    scale: 1,
-    transition: { duration: 0.6 },
-  },
-};
 const WebsiteDesign = () => {
   const images = [
     [
@@ -67,41 +29,46 @@ const WebsiteDesign = () => {
 
   return (
     <div className="text-white overflow-hidden">
-      <motion.div
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, amount: 0.3 }}
-        className="p-4 mx-auto relative z-10 w-full pt-10 md:pt-20 px-2"
-      >
-        <motion.div
-          variants={variants}
-          initial="inactive"
-          animate="active"
+      {/* Heading */}
+      <div className="p-4 mx-auto relative z-10 w-full pt-10 md:pt-20 px-2">
+        <motion.h1
+          initial={{ opacity: 0, scale: 0.9, y: 40 }}
+          whileInView={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.3 }}
           className="text-4xl md:text-7xl text-center text-white fontClass"
         >
           Website Design <br /> that works
-        </motion.div>
+        </motion.h1>
+
         <motion.p
-          variants={variants}
-          initial="inactive"
-          animate="active"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeInOut", delay: 0.2 }}
+          viewport={{ once: true, amount: 0.3 }}
           className="mt-4 text-lg font-normal text-neutral-300 max-w-lg text-center mx-auto px-4 urbanist"
         >
           Creating, designing and developing websites that work for your
           business.
         </motion.p>
-      </motion.div>
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: false, amount: 0.2 }}
-        className="grid grid-cols-2 md:grid-cols-4 gap-4 py-10"
-      >
+      </div>
+
+      {/* Gallery */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 py-10">
         {images.map((col, colIndex) => (
           <div key={colIndex} className="grid gap-4">
             {col.map((src, i) => (
-              <motion.div key={i} variants={imageVariants}>
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.8,
+                  ease: "easeInOut",
+                  delay: i * 0.1,
+                }}
+                viewport={{ once: false, amount: 0.2 }}
+              >
                 <Image
                   width={500}
                   height={500}
@@ -114,7 +81,7 @@ const WebsiteDesign = () => {
             ))}
           </div>
         ))}
-      </motion.div>
+      </div>
     </div>
   );
 };
