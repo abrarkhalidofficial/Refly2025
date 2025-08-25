@@ -16,27 +16,19 @@ const HorizontalScrollCarousel = () => {
 
   return (
     <section ref={targetRef} className="relative h-[300vh]">
-      <div className="p-4 mx-auto relative z-10 w-full pt-10 md:pt-20 px-2">
-        <motion.h1
-          initial={{ opacity: 0, scale: 0.9, y: 40 }}
-          whileInView={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          viewport={{ once: true, amount: 0.3 }}
-          className="text-4xl md:text-7xl text-center text-white fontClass"
-        >
-          What We Do
-        </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeInOut", delay: 0.2 }}
-          viewport={{ once: true, amount: 0.3 }}
-          className="mt-4 text-lg font-normal text-neutral-300 max-w-lg text-center mx-auto px-4 urbanist"
-        >
-          Elevate your digital frontier with AI-crafted interfaces that
-          captivate and convert.
-        </motion.p>
+      <div className="p-0 pl-12 mx-auto relative z-10 w-full pt-10 md:pt-20 px-2">
+        <div className="flex justify-start">
+          <motion.h1
+            initial={{ opacity: 0, scale: 0.9, y: 40 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.3 }}
+            className="text-4xl md:text-7xl text-left text-white fontClass"
+          >
+            Hire For
+            <span className="text-[#8D8D8D]"> Us</span>{" "}
+          </motion.h1>
+        </div>
       </div>
       <div className="sticky top-0 flex h-screen items-center overflow-hidden">
         <motion.div style={{ x }} className="flex gap-4">
@@ -77,37 +69,37 @@ export default ScrollCard;
 
 const cards = [
   {
-    url: "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image.jpg",
+    url: "/1.png",
     title: "Title 1",
     id: 1,
   },
   {
-    url: "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-1.jpg",
+    url: "/2.png",
     title: "Title 2",
     id: 2,
   },
   {
-    url: "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-2.jpg",
+    url: "/3.png",
     title: "Title 3",
     id: 3,
   },
   {
-    url: "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-3.jpg",
+    url: "/4.png",
     title: "Title 4",
     id: 4,
   },
   {
-    url: "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-4.jpg",
+    url: "/1.png",
     title: "Title 5",
     id: 5,
   },
   {
-    url: "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-5.jpg",
+    url: "/2.png",
     title: "Title 6",
     id: 6,
   },
   {
-    url: "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-6.jpg",
+    url: "/3.png",
     title: "Title 7",
     id: 7,
   },
