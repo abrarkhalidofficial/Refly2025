@@ -143,3 +143,27 @@ body {
   background-color: #139948;
   color: #fff !important;
 }
+.loader {
+  position: fixed;
+  top: calc(50vh - 1000px);
+  left: calc(50vw - 1000px);
+  width: 2000px;
+  aspect-ratio: 1/1;
+  padding: 2em;
+  background: linear-gradient(135deg, #000000, #000000);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 1000;
+  color: #fff;
+  text-align: center;
+}
+.loader__content__logo {
+  margin-bottom: 20px;
+}
+.loader__content__text {
+  font-size: 20px;
+  width: 100%;
+  max-width: 90vw;
+}
