@@ -1,7 +1,7 @@
 "use client";
 
 import { Card, CardContent } from "@/components/card";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { Sparkles } from "lucide-react";
 
 export default function Home() {
@@ -38,44 +38,56 @@ export default function Home() {
     },
   ];
 
-  const container = {
+  // Type-safe variants
+  const container: Variants = {
     hidden: { opacity: 0 },
     show: {
       opacity: 1,
-      transition: { staggerChildren: 0.25 },
+      transition: {
+        staggerChildren: 0.25,
+      },
     },
   };
 
-  const fadeUp = {
+  const fadeUp: Variants = {
     hidden: { opacity: 0, y: 40 },
     show: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: ["easeOut"] },
+      transition: { duration: 0.6, ease: "easeOut" },
     },
   };
 
   return (
     <div className="min-h-screen p-8 font-['Urbanist']">
+      {/* Section Header */}
       <section className="p-8 py-16 max-w-8xl mx-auto">
         <div className="mb-6">
-          <span className="text-sm text-white px-5 py-2 rounded-full border border-indigo-700 font-medium">
+          <motion.span
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.3 }}
+            className="text-sm text-white px-5 py-2 rounded-full border border-indigo-700 font-medium inline-block"
+          >
             Business & Approach
-          </span>
+          </motion.span>
         </div>
 
+        {/* Animate heading + paragraph one by one */}
         <motion.div
           variants={container}
           initial="hidden"
-          animate="show"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.3 }}
           className="grid lg:grid-cols-2 gap-12 items-start"
         >
           <motion.h1
             variants={fadeUp}
-            className="text-4xl lg:text-6xl font-bold text-white mb-6 leading-tight "
+            className="text-4xl lg:text-6xl font-bold text-white mb-6 leading-tight"
           >
             Building Solutions
-            <br /> That InspireGrowth
+            <br /> That Inspire Growth
           </motion.h1>
 
           <motion.p
@@ -88,11 +100,14 @@ export default function Home() {
           </motion.p>
         </motion.div>
       </section>
+
+      {/* Cards Section */}
       <section className="px-6 max-w-8xl mx-auto">
         <motion.div
           variants={container}
           initial="hidden"
-          animate="show"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.2 }}
           className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           {cards.map((card) => (
@@ -108,6 +123,7 @@ export default function Home() {
                 hover:bg-gradient-to-br hover:from-indigo-950 hover:to-black overflow-hidden"
               >
                 <CardContent className="p-8 relative z-10">
+                  {/* Icon */}
                   <motion.div
                     whileHover={{ rotate: 10 }}
                     className="absolute top-6 right-6"
@@ -120,12 +136,16 @@ export default function Home() {
                       <Sparkles className="w-6 h-6" />
                     </div>
                   </motion.div>
+
+                  {/* Card Number */}
                   <motion.div
                     variants={fadeUp}
                     className="text-3xl mb-6 font-bold text-white group-hover:text-indigo-300"
                   >
                     {card.id}
                   </motion.div>
+
+                  {/* Card Title */}
                   <motion.h3
                     variants={fadeUp}
                     className="text-2xl font-semibold mb-4 transition-colors
@@ -133,6 +153,8 @@ export default function Home() {
                   >
                     {card.title}
                   </motion.h3>
+
+                  {/* Card Description */}
                   <motion.p
                     variants={fadeUp}
                     className="text-base leading-relaxed transition-colors
