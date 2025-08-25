@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export default function Footer() {
   return (
-    <section className="pr-12 pl-12 pb-10 py-16 max-w-8xl mx-auto bg-white">
+    <section className="pr-12 pl-12 pb-10 py-16 max-w-8xl mx-auto ">
       <motion.div
         initial={{ opacity: 0, y: 60 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -64,7 +64,7 @@ export default function Footer() {
         viewport={{ once: true }}
         className="relative z-10 mt-12 border-t border-green-700/40 pt-6"
       >
-        <div className="flex flex-col md:flex-row items-center justify-between text-sm text-black">
+        <div className="flex flex-col md:flex-row items-center justify-between text-sm text-white">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -94,7 +94,7 @@ export default function Footer() {
                 whileTap={{ scale: 0.95 }}
                 className="hover:text-green-700 transition"
               >
-                <img src={icon} alt="social" className="w-10 h-10" />
+                <img src={icon} alt="social" className="w-10 h-10 invert" />
               </motion.a>
             ))}
           </motion.div>
