@@ -7,11 +7,9 @@ import WebsiteDesign from "@/components/website-section";
 export default function Home() {
   return (
     <>
-      {/* <HeroSection /> */}
-      <Header />
+      <Header /> <HeroSection />
       <ScrollCard />
       <WebsiteDesign />
-
       <Footer />
     </>
   );
