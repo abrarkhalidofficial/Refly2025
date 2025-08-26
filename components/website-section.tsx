@@ -73,7 +73,7 @@ const WebsiteDesign = () => {
                   width={500}
                   height={500}
                   priority
-                  className="h-auto max-w-full rounded-xl shadow-lg hover:scale-105 hover:shadow-2xl transition-all duration-500 ease-out"
+                  className="h-auto max-w-full  shadow-lg hover:scale-105 hover:shadow-2xl transition-all duration-500 ease-out"
                   src={src}
                   alt={`gallery-${colIndex}-${i}`}
                 />
