@@ -11,12 +11,12 @@ export default function Footer() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, ease: "easeOut" }}
         viewport={{ once: true }}
-        className="bg-gradient-to-r from-green-800 to-green-900 rounded-[3rem] p-16 text-center relative overflow-hidden flex flex-col items-center justify-center"
+        className="bg-gradient-to-r from-green-800 to-green-900 rounded-3xl p-6 sm:p-10 md:p-16 text-center relative overflow-hidden flex flex-col items-center justify-center"
         style={{
           backgroundImage: `url('/footerBackground.png')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          height: "600px",
+          height: "350px",
         }}
       >
         <div className="relative z-10 flex flex-col items-center justify-center h-full w-full">
@@ -25,7 +25,7 @@ export default function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.2 }}
             viewport={{ once: true }}
-            className="text-4xl lg:text-5xl font-bold text-white mb-8 leading-tight text-center"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 sm:mb-8 leading-tight text-center"
           >
             How We Build Solutions
             <br />
@@ -37,7 +37,7 @@ export default function Footer() {
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.4 }}
             viewport={{ once: true }}
-            className="bg-white text-gray-900 hover:bg-green-100 hover:scale-105 transition-all px-8 py-3 rounded-full font-medium flex items-center gap-3 shadow-md"
+            className="bg-white text-gray-900 hover:bg-green-100 hover:scale-105 transition-all px-6 sm:px-8 py-2 sm:py-3 rounded-full font-medium flex items-center gap-2 sm:gap-3 shadow-md"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
