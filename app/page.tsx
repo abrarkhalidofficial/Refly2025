@@ -1,3 +1,4 @@
+import ContactSection from "@/components/contact-section";
 import Footer from "@/components/footer";
 import Header from "@/components/header";
 import HeroSection from "@/components/home-section";
@@ -10,6 +11,7 @@ export default function Home() {
       <Header /> <HeroSection />
       <ScrollCard />
       <WebsiteDesign />
+      <ContactSection />
       <Footer />
     </>
   );
