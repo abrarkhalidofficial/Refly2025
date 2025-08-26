@@ -36,7 +36,7 @@ const WebsiteDesign = () => {
           whileInView={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
           viewport={{ once: true, amount: 0.3 }}
-          className="text-4xl md:text-7xl text-center text-white fontClass"
+          className="text-3xl md:text-6xl text-center text-white fontClass"
         >
           Website Design <br /> that works
         </motion.h1>
