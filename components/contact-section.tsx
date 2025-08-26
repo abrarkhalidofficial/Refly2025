@@ -1,118 +1,114 @@
 "use client";
 
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import React from "react";
 
-export default function ContactPopup() {
-  const [showPopup, setShowPopup] = useState(false);
-  const [device, setDevice] = useState("");
-
+export default function ContactSection() {
   return (
-    <>
-      {/* Trigger Button */}
-      <div className="flex justify-center items-center min-h-screen bg-gray-950">
-        <button
-          onClick={() => setShowPopup(true)}
-          className="px-6 py-3 bg-[#eaff7b] text-gray-900 rounded-full font-semibold text-lg shadow-md hover:bg-[#d9f25f] transition"
-        >
-          Open Contact Form
-        </button>
-      </div>
+    <section
+      id="contact"
+      className="min-h-screen w-full flex items-center justify-center bg-gradient-to-br from-[#000] via-[#000] to-[#000] px-6 py-16"
+    >
+      <div className="w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
+        {/* Left: Contact Info */}
+        <div className="text-white space-y-10 md:col-span-1">
+          <div>
+            <p className="text-sm uppercase tracking-[0.2em] text-[#e70505] mb-3">
+              Refly Agency{" "}
+            </p>
+            <h1 className="text-4xl md:text-4xl font-bold leading-tight fontClass">
+              Let's Elevate Your Brand
+            </h1>
+            <p className="text-gray-400 mt-4 text-lg leading-relaxed">
+              Have a project, question, or want to collaborate? Reach out and
+              let's create something amazing together.{" "}
+            </p>
+          </div>
 
-      {/* Popup Modal */}
-      <AnimatePresence>
-        {showPopup && (
-          <motion.div
-            className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-70 z-50"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          >
-            <motion.section
-              initial={{ opacity: 0, scale: 0.95, y: 30 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 30 }}
-              transition={{ duration: 0.35, ease: "easeOut" }}
-              className="relative w-full h-full md:h-[90%] md:w-[90%] rounded-2xl shadow-2xl overflow-hidden grid grid-cols-1 md:grid-cols-2 border border-gray-800 bg-gray-900"
-            >
-              {/* Left Side */}
-              <div className="relative flex flex-col justify-center items-center bg-black p-10">
-                <img
-                  src="/boring.gif"
-                  alt="background"
-                  className="absolute inset-0 w-full h-full object-cover opacity-40"
-                  style={{ filter: "blur(3px)" }}
-                />
-                <div className="relative z-10 flex flex-col items-center justify-center text-center space-y-4">
-                  <h1
-                    className="text-5xl text-white tracking-wide"
-                    style={{ fontFamily: "Akira_Expanded, sans-serif" }}
-                  >
-                    RE<span className="font-normal text-[#eaff7b]">FL</span>Y
-                  </h1>
-                  <p className="text-gray-300 text-lg max-w-md leading-relaxed">
-                    Your self-care journey starts here.
-                  </p>
-                </div>
-              </div>
-
-              {/* Right Side: Form */}
-              <div className="relative bg-gradient-to-br from-[#181c2a] to-[#2a2250] flex flex-col min-h-full border-l border-white/20">
-                {/* Close Button */}
-                <button
-                  onClick={() => setShowPopup(false)}
-                  className="absolute top-6 right-6 w-9 h-9 flex items-center justify-center bg-transparent rounded-full text-gray-400 hover:text-white transition"
-                  aria-label="Close"
+          <div className="space-y-6">
+            <div>
+              <p className="text-xs uppercase text-gray-500 mb-1">Email</p>
+              <p className="text-base font-medium">info@refly.agencys</p>
+            </div>
+            <div>
+              <p className="text-xs uppercase text-gray-500 mb-1">Location</p>
+              <p className="text-base font-medium leading-relaxed">
+                45 Constellation Tower, <br /> Innovation Street, London, UK
+              </p>
+            </div>
+            <div>
+              <p className="text-xs uppercase text-gray-500 mb-1">
+                Social Media
+              </p>
+              <div className="flex gap-6 items-center mt-2">
+                <a
+                  href="#"
+                  className="flex items-center gap-2 text-base hover:text-[#e70505] transition"
                 >
-                  ×
-                </button>
-                <div className="flex-1 flex flex-col justify-center items-center p-10">
-                  <form className="space-y-8 w-full max-w-md bg-white/5 border border-white/20 rounded-xl p-8 shadow-xl">
-                    <h2 className="text-2xl font-semibold text-white mb-2">
-                      We're Here to Help
-                    </h2>
-                    <p className="text-sm text-gray-300 mb-6">
-                      Questions, ideas, or feedback—let's make progress
-                      together.
-                    </p>
-                    <div className="space-y-6">
-                      <input
-                        type="text"
-                        placeholder="Full name"
-                        className="w-full bg-transparent border-b border-white/40 text-white placeholder-gray-400 py-3 px-2 outline-none focus:border-white transition"
-                        required
-                      />
-                      <input
-                        type="email"
-                        placeholder="Email"
-                        className="w-full bg-transparent border-b border-white/40 text-white placeholder-gray-400 py-3 px-2 outline-none focus:border-white transition"
-                        required
-                      />
-                      <input
-                        type="text"
-                        placeholder="Company"
-                        className="w-full bg-transparent border-b border-white/40 text-white placeholder-gray-400 py-3 px-2 outline-none focus:border-white transition"
-                      />
-                      <textarea
-                        placeholder="Message or Inquiry"
-                        rows={4}
-                        className="w-full bg-transparent border-b border-white/40 text-white placeholder-gray-400 py-3 px-2 outline-none focus:border-white transition resize-none"
-                        required
-                      />
-                    </div>
-                    <button
-                      type="submit"
-                      className="w-full bg-white text-[#181c2a] py-3 rounded-md font-semibold text-lg mt-4 shadow hover:bg-gray-100 transition"
-                    >
-                      Submit
-                    </button>
-                  </form>
-                </div>
+                  <span className="text-lg">&#x1F4F7;</span> @constellation.ai
+                </a>
+                <a
+                  href="#"
+                  className="flex items-center gap-2 text-base hover:text-[#e70505] transition"
+                >
+                  <span className="text-lg">&#x1F465;</span> constellation
+                </a>
               </div>
-            </motion.section>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </>
+            </div>
+          </div>
+        </div>
+
+        {/* Center: 3D Image */}
+        <div className="flex justify-center items-center md:col-span-1 order-first md:order-none">
+          <img
+            src="/boring.gif"
+            alt="3D centerpiece"
+            className="w-[260px] h-[260px] sm:w-[300px] sm:h-[300px] md:w-[340px] md:h-[340px] object-contain "
+          />
+        </div>
+
+        {/* Right: Form Card */}
+        <div className="flex justify-center items-center md:col-span-1">
+          <form className="w-full max-w-md bg-white/5 border border-white/10 rounded-2xl p-8 shadow-lg backdrop-blur-md">
+            <div className="flex items-center mb-6">
+              <span className="w-3 h-3 rounded-full bg-[#e70505] mr-2"></span>
+              <span className="text-gray-300 text-lg font-semibold">
+                Contact Form
+              </span>
+            </div>
+            <div className="space-y-6">
+              <input
+                type="text"
+                placeholder="Full Name"
+                className="w-full bg-transparent border-b border-white/30 text-white placeholder-gray-500 py-3 px-2 outline-none focus:border-[#e70505] transition"
+                required
+              />
+              <input
+                type="email"
+                placeholder="Email Address"
+                className="w-full bg-transparent border-b border-white/30 text-white placeholder-gray-500 py-3 px-2 outline-none focus:border-[#e70505] transition"
+                required
+              />
+              <input
+                type="text"
+                placeholder="Company / Organization"
+                className="w-full bg-transparent border-b border-white/30 text-white placeholder-gray-500 py-3 px-2 outline-none focus:border-[#e70505] transition"
+              />
+              <textarea
+                placeholder="Message or Inquiry"
+                rows={4}
+                className="w-full bg-transparent border-b border-white/30 text-white placeholder-gray-500 py-3 px-2 outline-none focus:border-[#e70505] transition resize-none"
+                required
+              />
+            </div>
+            <button
+              type="submit"
+              className="w-full bg-[#e70505] text-white py-3 rounded-lg font-semibold text-lg mt-8 shadow-md hover:bg-[#ffffff] hover:text-red-700 transition"
+            >
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
   );
 }
