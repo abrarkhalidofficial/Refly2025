@@ -14,7 +14,12 @@ const Header: React.FC = () => {
       }}
     >
       <img src="/logoBlack.png" alt="Logo" style={{ height: "60px" }} />
-      <Link href="#" title="Lets Talk" className="header__content__cta__button">
+      <Link
+        href="#contact"
+        title="Lets Talk"
+        className="header__content__cta__button"
+        scroll={true}
+      >
         <span>Lets Talk</span>
         <div className="header__content__cta__button__icon">
           <Edit2 size={20} color="currentColor" />
