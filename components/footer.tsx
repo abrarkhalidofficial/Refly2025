@@ -11,12 +11,11 @@ export default function Footer() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, ease: "easeOut" }}
         viewport={{ once: true }}
-        className="bg-gradient-to-r from-green-800 to-green-900 rounded-3xl p-6 sm:p-10 md:p-16 text-center relative overflow-hidden flex flex-col items-center justify-center"
+        className="bg-gradient-to-r from-green-800 to-green-900 rounded-3xl p-6 sm:p-10 md:p-16 text-center relative overflow-hidden flex flex-col items-center justify-center h-[350px] md:h-[550px]"
         style={{
           backgroundImage: `url('/footerBackground.png')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          height: "350px",
         }}
       >
         <div className="relative z-10 flex flex-col items-center justify-center h-full w-full">
@@ -57,6 +56,7 @@ export default function Footer() {
           </motion.button>
         </div>
       </motion.div>
+
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
