@@ -70,6 +70,7 @@ const HeroSection: React.FC = () => {
             pointerEvents: "none",
             zIndex: 1,
           }}
+          className="logo-gradient-left"
         />
         <div
           style={{
@@ -82,6 +83,7 @@ const HeroSection: React.FC = () => {
             pointerEvents: "none",
             zIndex: 1,
           }}
+          className="logo-gradient-right"
         />
         <div
           style={{
@@ -109,7 +111,13 @@ const HeroSection: React.FC = () => {
         0% { transform: translateX(0); }
         100% { transform: translateX(-50%); }
       }
-        `}
+      @media (max-width: 600px) {
+        .logo-gradient-left,
+        .logo-gradient-right {
+          width: 5em !important;
+        }
+      }
+          `}
         </style>
       </div>
     </section>
