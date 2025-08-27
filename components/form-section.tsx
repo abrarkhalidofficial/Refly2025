@@ -23,6 +23,28 @@ const AnimatedText = ({ text }: { text: string }) => {
   );
 };
 
+const uploadFile = async (file: File): Promise<string | null> => {
+  const data = new FormData();
+  data.append("file", file);
+  data.append("upload_preset", "REFLY_AGENCY");
+
+  try {
+    const res = await fetch(
+      "https://api.cloudinary.com/v1_1/dhg7c7ypc/upload",
+      {
+        method: "POST",
+        body: data,
+      }
+    );
+
+    const json = await res.json();
+    return json.secure_url; // public link
+  } catch (err) {
+    console.error("Upload failed:", err);
+    return null;
+  }
+};
+
 export default function ContactForm() {
   const [selected, setSelected] = useState<string | null>("UI/UX design");
   const [formData, setFormData] = useState({
@@ -94,25 +116,33 @@ export default function ContactForm() {
     setSubmitStatus("idle");
 
     try {
-      const submissionData = new FormData();
-      submissionData.append("service", selected || "");
-      submissionData.append("name", formData.name);
-      submissionData.append("email", formData.email);
-      submissionData.append("message", formData.message);
+      let attachmentUrl = "";
+
       if (formData.attachment) {
-        submissionData.append("attachment", formData.attachment);
+        const uploaded = await uploadFile(formData.attachment);
+        if (uploaded) {
+          attachmentUrl = uploaded;
+        }
       }
 
       const response = await fetch("https://formspree.io/f/xzzablzl", {
         method: "POST",
-        body: submissionData,
+        body: JSON.stringify({
+          service: selected || "",
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          attachment: attachmentUrl,
+        }),
         headers: {
           Accept: "application/json",
+          "Content-Type": "application/json",
         },
       });
 
       if (response.ok) {
         setSubmitStatus("success");
+        setFormData({ name: "", email: "", message: "", attachment: null });
       } else {
         setSubmitStatus("error");
       }
@@ -123,7 +153,6 @@ export default function ContactForm() {
       setIsSubmitting(false);
     }
   };
-
   return (
     <section
       id="contact"
@@ -313,8 +342,17 @@ export default function ContactForm() {
                 <span>Add attachment</span>
                 <input
                   type="file"
+                  accept=".pdf,.doc,.docx"
                   id="attachment"
-                  onChange={handleFileChange}
+                  onChange={(e) => {
+                    const file = e.target.files?.[0];
+                    if (file && file.size > 5 * 1024 * 1024) {
+                      alert("File size must be less than 5MB.");
+                      e.target.value = "";
+                      return;
+                    }
+                    handleFileChange(e);
+                  }}
                   className="hidden"
                 />
               </label>
