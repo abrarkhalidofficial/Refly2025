@@ -12,13 +12,13 @@ const HorizontalScrollCarousel = () => {
     target: targetRef,
   });
 
-  const x = useTransform(scrollYProgress, [0, 1], ["1%", "-95%"]);
+  const x = useTransform(scrollYProgress, [0, 1], ["20%", "-45%"]);
 
   return (
-    <section ref={targetRef} className="relative h-[150vh] md:h-[300vh]">
+    <section ref={targetRef} className="relative h-auto md:h-[250vh]">
       <div
-        className="p-0 pl-12 mx-auto relative z-10 w-full pt-10 md:pt-20 px-2"
-        style={{ marginBottom: "-5em" }}
+        className="p-0 pl-6 md:pl-12 mx-auto relative z-10 w-full pt-6 md:pt-20"
+        style={{ marginBottom: "2em" }}
       >
         <div className="flex justify-start">
           <motion.h1
@@ -26,18 +26,25 @@ const HorizontalScrollCarousel = () => {
             whileInView={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: true, amount: 0.3 }}
-            className="text-3xl md:text-6xl text-left text-white fontClass"
+            className="text-2xl md:text-6xl text-left text-white fontClass"
           >
             Hire For
-            <span className="text-[#8D8D8D]"> Us</span>{" "}
+            <span className="text-[#8D8D8D]"> Us</span>
           </motion.h1>
         </div>
       </div>
-      <div className="sticky top-0 flex h-screen items-center overflow-hidden">
-        <motion.div style={{ x }} className="flex gap-4">
-          {cards.map((card) => {
-            return <Card card={card} key={card.id} />;
-          })}
+
+      <div className="md:sticky md:top-0 flex h-auto md:h-screen items-center overflow-hidden">
+        <div className="flex flex-col gap-6 md:hidden w-full px-4">
+          {cards.map((card) => (
+            <Card card={card} key={card.id} />
+          ))}
+        </div>
+
+        <motion.div style={{ x }} className="hidden md:flex gap-4">
+          {cards.map((card) => (
+            <Card card={card} key={card.id} />
+          ))}
         </motion.div>
       </div>
     </section>
@@ -54,7 +61,7 @@ const Card = ({ card }: { card: CardType }) => {
   return (
     <div
       key={card.id}
-      className="group relative h-[400px] w-[90vw] max-w-[570px] overflow-hidden md:h-[700px] md:w-[570px]"
+      className="group relative h-[500px] w-full max-w-[570px] overflow-hidden md:h-[700px] md:w-[570px] mx-auto"
     >
       <div
         style={{
@@ -64,7 +71,7 @@ const Card = ({ card }: { card: CardType }) => {
         }}
         className="absolute inset-0 z-0 transition-transform duration-300 group-hover:scale-110"
       ></div>
-      {/* Arrow button at bottom, visible on hover */}
+
       <button className="absolute bottom-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/10 rounded-full p-3 shadow-lg flex items-center justify-center">
         <svg
           width="22"
@@ -86,39 +93,8 @@ const Card = ({ card }: { card: CardType }) => {
 export default ScrollCard;
 
 const cards = [
-  {
-    url: "/1.png",
-    title: "Title 1",
-    id: 1,
-  },
-  {
-    url: "/2.png",
-    title: "Title 2",
-    id: 2,
-  },
-  {
-    url: "/3.png",
-    title: "Title 3",
-    id: 3,
-  },
-  {
-    url: "/4.png",
-    title: "Title 4",
-    id: 4,
-  },
-  {
-    url: "/1.png",
-    title: "Title 5",
-    id: 5,
-  },
-  {
-    url: "/2.png",
-    title: "Title 6",
-    id: 6,
-  },
-  {
-    url: "/3.png",
-    title: "Title 7",
-    id: 7,
-  },
+  { url: "/1.png", title: "Title 1", id: 1 },
+  { url: "/2.png", title: "Title 2", id: 2 },
+  { url: "/3.png", title: "Title 3", id: 3 },
+  { url: "/4.png", title: "Title 4", id: 4 },
 ];
