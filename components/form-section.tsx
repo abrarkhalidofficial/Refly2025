@@ -3,6 +3,21 @@ import { useState } from "react";
 
 export default function ContactForm() {
   const [selected, setSelected] = useState<string | null>("UI/UX design");
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+    attachment: null as File | null,
+  });
+  const [errors, setErrors] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<
+    "idle" | "success" | "error"
+  >("idle");
 
   const services = [
     "UI/UX design",
@@ -12,24 +27,96 @@ export default function ContactForm() {
     "Other",
   ];
 
+  const validateForm = () => {
+    let valid = true;
+    const newErrors = { name: "", email: "", message: "" };
+
+    if (!formData.name.trim()) {
+      newErrors.name = "Name is required";
+      valid = false;
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required";
+      valid = false;
+    } else if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
+      newErrors.email = "Please enter a valid email address";
+      valid = false;
+    }
+
+    if (!formData.message.trim()) {
+      newErrors.message = "Please tell us about your project";
+      valid = false;
+    }
+
+    setErrors(newErrors);
+    return valid;
+  };
+
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+
+    if (errors[name as keyof typeof errors]) {
+      setErrors((prev) => ({ ...prev, [name]: "" }));
+    }
+  };
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0] || null;
+    setFormData((prev) => ({ ...prev, attachment: file }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!validateForm()) return;
+
+    setIsSubmitting(true);
+    setSubmitStatus("idle");
+
+    try {
+      const submissionData = new FormData();
+      submissionData.append("service", selected || "");
+      submissionData.append("name", formData.name);
+      submissionData.append("email", formData.email);
+      submissionData.append("message", formData.message);
+      if (formData.attachment) {
+        submissionData.append("attachment", formData.attachment);
+      }
+
+      const response = await fetch("https://formspree.io/f/xzzablzl", {
+        method: "POST",
+        body: submissionData,
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (response.ok) {
+        setSubmitStatus("success");
+      } else {
+        setSubmitStatus("error");
+      }
+    } catch (error) {
+      console.error(error);
+      setSubmitStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div className="min-h-screen w-full flex flex-col md:flex-row p-15">
       <div
         className="w-full flex flex-col md:flex-row p-15"
         style={{
-          backgroundImage: "url('/footerBackground.png')", // 🔥 Replace with your GIF file
+          backgroundImage: "url('/footerBackground.png')",
         }}
       >
-        {/* Left side with GIF background */}
-        <div
-          className="flex-1 flex flex-col justify-center items-start px-8 md:px-16 text-white bg-cover bg-center relative"
-          // style={{
-          //   backgroundImage: "url('/footerBackground.png')",
-          // }}
-        >
-          {/* Overlay to improve text visibility */}
-          {/* <div className="absolute inset-0 bg-black/40"></div> */}
-
+        <div className="flex-1 flex flex-col justify-center items-start px-8 md:px-16 text-white bg-cover bg-center relative">
           <div className="relative z-10">
             <h1 className="text-4xl md:text-6xl font-bold leading-snug">
               Have a project? <br /> We would love to help.
@@ -38,12 +125,10 @@ export default function ContactForm() {
           </div>
         </div>
 
-        {/* Right side (Form) */}
         <div
           className="bg-black text-white px-8 md:px-16 py-12"
           style={{ width: "600px" }}
         >
-          {/* Navbar */}
           <div className="flex justify-end gap-8 mb-12 text-gray-400 text-sm font-medium">
             <a href="#" className="hover:text-white">
               Works
@@ -56,10 +141,22 @@ export default function ContactForm() {
             </a>
           </div>
 
-          {/* Form */}
-          <form className="flex flex-col space-y-8">
+          {submitStatus === "success" && (
+            <div className="mb-6 p-4 bg-green-900/30 border border-green-600 rounded-md">
+              Thank you for your message! We'll get back to you soon.
+            </div>
+          )}
+
+          {submitStatus === "error" && (
+            <div className="mb-6 p-4 bg-red-900/30 border border-red-600 rounded-md">
+              Sorry, there was an error sending your message. Please try again
+              or email us directly.
+            </div>
+          )}
+
+          <form onSubmit={handleSubmit} className="flex flex-col space-y-8">
             <div>
-              <p className="text-sm mb-3 text-gray-400">I’m interested in...</p>
+              <p className="text-sm mb-3 text-gray-400">I'm interested in...</p>
               <div className="flex flex-wrap gap-3">
                 {services.map((service) => (
                   <button
@@ -78,34 +175,75 @@ export default function ContactForm() {
               </div>
             </div>
 
-            <input
-              type="text"
-              placeholder="Your name"
-              className="w-full bg-transparent border-b border-gray-600 focus:border-white focus:outline-none py-2 text-sm"
-            />
+            <div>
+              <input
+                type="text"
+                name="name"
+                placeholder="Your name"
+                value={formData.name}
+                onChange={handleInputChange}
+                className="w-full bg-transparent border-b border-gray-600 focus:border-white focus:outline-none py-2 text-sm"
+              />
+              {errors.name && (
+                <p className="text-red-500 text-xs mt-1">{errors.name}</p>
+              )}
+            </div>
 
-            <input
-              type="email"
-              placeholder="Your email"
-              className="w-full bg-transparent border-b border-gray-600 focus:border-white focus:outline-none py-2 text-sm"
-            />
+            <div>
+              <input
+                type="email"
+                name="email"
+                placeholder="Your email"
+                value={formData.email}
+                onChange={handleInputChange}
+                className="w-full bg-transparent border-b border-gray-600 focus:border-white focus:outline-none py-2 text-sm"
+              />
+              {errors.email && (
+                <p className="text-red-500 text-xs mt-1">{errors.email}</p>
+              )}
+            </div>
 
-            <textarea
-              placeholder="Tell us about your project"
-              rows={4}
-              className="w-full bg-transparent border-b border-gray-600 focus:border-white focus:outline-none py-2 text-sm resize-none"
-            ></textarea>
+            <div>
+              <textarea
+                name="message"
+                placeholder="Tell us about your project"
+                rows={4}
+                value={formData.message}
+                onChange={handleInputChange}
+                className="w-full bg-transparent border-b border-gray-600 focus:border-white focus:outline-none py-2 text-sm resize-none"
+              ></textarea>
+              {errors.message && (
+                <p className="text-red-500 text-xs mt-1">{errors.message}</p>
+              )}
+            </div>
 
-            <div className="flex items-center gap-2 text-gray-400 text-sm cursor-pointer hover:text-white">
-              <span className="text-lg">📎</span>
-              <span>Add attachment</span>
+            <div className="flex items-center gap-2 text-gray-400 text-sm">
+              <label
+                htmlFor="attachment"
+                className="flex items-center gap-2 cursor-pointer hover:text-white"
+              >
+                <span className="text-lg">📎</span>
+                <span>Add attachment</span>
+                <input
+                  type="file"
+                  id="attachment"
+                  onChange={handleFileChange}
+                  className="hidden"
+                />
+              </label>
+              {formData.attachment && (
+                <span className="text-xs ml-2 text-gray-500">
+                  {formData.attachment.name}
+                </span>
+              )}
             </div>
 
             <button
               type="submit"
-              className="bg-white text-black font-medium py-3 rounded-md hover:bg-gray-200 transition"
+              disabled={isSubmitting}
+              className="bg-white text-black font-medium py-3 rounded-md hover:bg-gray-200 transition disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              Sent request
+              {isSubmitting ? "Sending..." : "Send request"}
             </button>
           </form>
         </div>
