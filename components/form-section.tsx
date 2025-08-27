@@ -125,7 +125,10 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="min-h-screen w-full flex flex-col md:flex-row p-4 pt-8 md:p-15 fontBody justify-center md:justify-normal">
+    <section
+      id="contact"
+      className="min-h-screen w-full flex flex-col md:flex-row p-4 pt-8 md:p-15 fontBody justify-center md:justify-normal"
+    >
       <div
         className="w-full flex flex-col md:flex-row p-4 pt-8 md:p-15"
         style={{
@@ -336,6 +339,6 @@ export default function ContactForm() {
           </form>
         </motion.div>
       </div>
-    </div>
+    </section>
   );
 }
