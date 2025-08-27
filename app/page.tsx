@@ -13,7 +13,7 @@ export default function Home() {
       <ScrollCard />
       <WebsiteDesign />
       <ContactForm />
-      <ContactSection />
+      {/* <ContactSection /> */}
       <Footer />
     </>
   );
