@@ -6,24 +6,24 @@ import { motion } from "framer-motion";
 const WebsiteDesign = () => {
   const images = [
     [
-      "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image.jpg",
-      "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-1.jpg",
-      "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-2.jpg",
+      "/projects/project1.png",
+      "/projects/project2.png",
+      "/projects/project3.png",
     ],
     [
-      "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-3.jpg",
-      "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-4.jpg",
-      "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-5.jpg",
+      "/projects/project4.png",
+      "/projects/project5.png",
+      "/projects/project6.png",
     ],
     [
-      "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-6.jpg",
-      "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-7.jpg",
-      "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-8.jpg",
+      "/projects/project7.png",
+      "/projects/project8.png",
+      "/projects/project9.png",
     ],
     [
-      "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-9.jpg",
-      "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-10.jpg",
-      "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-11.jpg",
+      "/projects/project10.png",
+      "/projects/project11.png",
+      "/projects/project12.png",
     ],
   ];
 
