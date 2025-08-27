@@ -1,5 +1,5 @@
-import ContactSection from "@/components/contact-section";
 import Footer from "@/components/footer";
+import TestimonialSection from "@/components/testimonial-section";
 import ContactForm from "@/components/form-section";
 import Header from "@/components/header";
 import HeroSection from "@/components/home-section";
@@ -13,7 +13,7 @@ export default function Home() {
       <ScrollCard />
       <WebsiteDesign />
       <ContactForm />
-      {/* <ContactSection /> */}
+      <TestimonialSection />
       <Footer />
     </>
   );
