@@ -34,6 +34,9 @@ body {
 .fontClass {
   font-family: "Akira Expanded";
 }
+.fontBody {
+  font-family: "Urbanist", sans-serif;
+}
 
 .header__content__nav .header__content__cta__button__outside {
   display: none;
