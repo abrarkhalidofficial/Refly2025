@@ -19,13 +19,7 @@ export default function ContactForm() {
     "idle" | "success" | "error"
   >("idle");
 
-  const services = [
-    "UI/UX design",
-    "Website",
-    "Branding",
-    "Design system",
-    "Other",
-  ];
+  const services = ["UI/UX design", "Website", "Branding", "Video Editing"];
 
   const validateForm = () => {
     let valid = true;
@@ -109,27 +103,30 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="min-h-screen w-full flex flex-col md:flex-row p-15">
+    <div className="min-h-screen w-full flex flex-col md:flex-row p-4  pt-8 md:p-15 fontBody">
       <div
-        className="w-full flex flex-col md:flex-row p-15"
+        className="w-full flex flex-col md:flex-row p-4  pt-8 md:p-15"
         style={{
-          backgroundImage: "url('/footerBackground.png')",
+          backgroundImage:
+            "url('https://images.unsplash.com/photo-1706720094778-5156e8b656e2?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
         }}
       >
-        <div className="flex-1 flex flex-col justify-center items-start px-8 md:px-16 text-white bg-cover bg-center relative">
+        <div className="flex-1 flex flex-col justify-center items-start px-4 md:px-16 text-white bg-cover bg-center relative pb-4">
           <div className="relative z-10">
-            <h1 className="text-4xl md:text-6xl font-bold leading-snug">
+            <h1 className="text-2xl sm:text-4xl md:text-6xl font-bold leading-snug">
               Have a project? <br /> We would love to help.
             </h1>
-            <p className="mt-6 text-sm md:text-base">reflyagency@gmail.com</p>
+            <p className="mt-4 sm:mt-6 text-xs sm:text-sm md:text-base">
+              reflyagency@gmail.com
+            </p>
           </div>
         </div>
 
-        <div
-          className="bg-black text-white px-8 md:px-16 py-12"
-          style={{ width: "600px" }}
-        >
-          <div className="flex justify-end gap-8 mb-12 text-gray-400 text-sm font-medium">
+        <div className="bg-black text-white px-4 sm:px-8 md:px-16 py-8 sm:py-12 w-full md:w-[600px] rounded-[20px] md:rounded-none">
+          <div className="flex justify-end gap-4 sm:gap-8 mb-8 sm:mb-12 text-gray-400 text-xs sm:text-sm font-medium">
             <a href="#" className="hover:text-white">
               Works
             </a>
@@ -142,28 +139,33 @@ export default function ContactForm() {
           </div>
 
           {submitStatus === "success" && (
-            <div className="mb-6 p-4 bg-green-900/30 border border-green-600 rounded-md">
+            <div className="mb-6 p-4 bg-green-900/30 border border-green-600 rounded-md text-xs sm:text-sm">
               Thank you for your message! We'll get back to you soon.
             </div>
           )}
 
           {submitStatus === "error" && (
-            <div className="mb-6 p-4 bg-red-900/30 border border-red-600 rounded-md">
+            <div className="mb-6 p-4 bg-red-900/30 border border-red-600 rounded-md text-xs sm:text-sm">
               Sorry, there was an error sending your message. Please try again
               or email us directly.
             </div>
           )}
 
-          <form onSubmit={handleSubmit} className="flex flex-col space-y-8">
+          <form
+            onSubmit={handleSubmit}
+            className="flex flex-col space-y-6 sm:space-y-8"
+          >
             <div>
-              <p className="text-sm mb-3 text-gray-400">I'm interested in...</p>
-              <div className="flex flex-wrap gap-3">
+              <p className="text-xs sm:text-sm mb-2 sm:mb-3 text-gray-400">
+                I'm interested in...
+              </p>
+              <div className="flex flex-wrap gap-2 sm:gap-3">
                 {services.map((service) => (
                   <button
                     type="button"
                     key={service}
                     onClick={() => setSelected(service)}
-                    className={`px-4 py-2 border rounded-md text-sm ${
+                    className={`px-3 sm:px-4 py-1 sm:py-2 border rounded-md text-xs sm:text-sm ${
                       selected === service
                         ? "bg-white text-black"
                         : "border-gray-600 text-gray-300 hover:border-white"
@@ -182,7 +184,7 @@ export default function ContactForm() {
                 placeholder="Your name"
                 value={formData.name}
                 onChange={handleInputChange}
-                className="w-full bg-transparent border-b border-gray-600 focus:border-white focus:outline-none py-2 text-sm"
+                className="w-full bg-transparent border-b border-gray-600 focus:border-white focus:outline-none py-2 text-xs sm:text-sm"
               />
               {errors.name && (
                 <p className="text-red-500 text-xs mt-1">{errors.name}</p>
@@ -196,7 +198,7 @@ export default function ContactForm() {
                 placeholder="Your email"
                 value={formData.email}
                 onChange={handleInputChange}
-                className="w-full bg-transparent border-b border-gray-600 focus:border-white focus:outline-none py-2 text-sm"
+                className="w-full bg-transparent border-b border-gray-600 focus:border-white focus:outline-none py-2 text-xs sm:text-sm"
               />
               {errors.email && (
                 <p className="text-red-500 text-xs mt-1">{errors.email}</p>
@@ -210,14 +212,14 @@ export default function ContactForm() {
                 rows={4}
                 value={formData.message}
                 onChange={handleInputChange}
-                className="w-full bg-transparent border-b border-gray-600 focus:border-white focus:outline-none py-2 text-sm resize-none"
+                className="w-full bg-transparent border-b border-gray-600 focus:border-white focus:outline-none py-2 text-xs sm:text-sm resize-none"
               ></textarea>
               {errors.message && (
                 <p className="text-red-500 text-xs mt-1">{errors.message}</p>
               )}
             </div>
 
-            <div className="flex items-center gap-2 text-gray-400 text-sm">
+            <div className="flex items-center gap-2 text-gray-400 text-xs sm:text-sm">
               <label
                 htmlFor="attachment"
                 className="flex items-center gap-2 cursor-pointer hover:text-white"
@@ -241,7 +243,7 @@ export default function ContactForm() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="bg-white text-black font-medium py-3 rounded-md hover:bg-gray-200 transition disabled:opacity-50 disabled:cursor-not-allowed"
+              className="bg-white text-black font-medium py-2 sm:py-3 rounded-md hover:bg-gray-200 transition disabled:opacity-50 disabled:cursor-not-allowed text-xs sm:text-base"
             >
               {isSubmitting ? "Sending..." : "Send request"}
             </button>
