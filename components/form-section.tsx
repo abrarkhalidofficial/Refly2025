@@ -1,5 +1,27 @@
 "use client";
 import { useState } from "react";
+import { motion } from "framer-motion";
+
+const AnimatedText = ({ text }: { text: string }) => {
+  const words = text.split(" ");
+
+  return (
+    <span className="inline-block">
+      {words.map((word, i) => (
+        <motion.span
+          key={i}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: i * 0.15, duration: 0.6, ease: "easeOut" }}
+          className="inline-block mr-2"
+        >
+          {word}
+        </motion.span>
+      ))}
+    </span>
+  );
+};
 
 export default function ContactForm() {
   const [selected, setSelected] = useState<string | null>("UI/UX design");
@@ -103,9 +125,9 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="min-h-screen w-full flex flex-col md:flex-row p-4  pt-8 md:p-15 fontBody">
+    <div className="min-h-screen w-full flex flex-col md:flex-row p-4 pt-8 md:p-15 fontBody justify-center md:justify-normal">
       <div
-        className="w-full flex flex-col md:flex-row p-4  pt-8 md:p-15"
+        className="w-full flex flex-col md:flex-row p-4 pt-8 md:p-15"
         style={{
           backgroundImage:
             "url('https://images.unsplash.com/photo-1706720094778-5156e8b656e2?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",
@@ -114,19 +136,37 @@ export default function ContactForm() {
           backgroundPosition: "center",
         }}
       >
-        <div className="flex-1 flex flex-col justify-center items-start px-4 md:px-16 text-white bg-cover bg-center relative pb-4">
-          <div className="relative z-10">
-            <h1 className="text-2xl sm:text-4xl md:text-6xl font-bold leading-snug">
-              Have a project? <br /> We would love to help.
-            </h1>
-            <p className="mt-4 sm:mt-6 text-xs sm:text-sm md:text-base">
-              reflyagency@gmail.com
-            </p>
-          </div>
+        <div className="flex-1 flex flex-col justify-center items-start px-4 md:px-16 text-white pb-4">
+          <h1 className="text-2xl sm:text-4xl md:text-6xl font-bold leading-snug">
+            <AnimatedText text="Have a project?" /> <br />
+            <AnimatedText text="We would love to help." />
+          </h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 1.2, duration: 0.6 }}
+            className="mt-4 sm:mt-6 text-xs sm:text-sm md:text-base"
+          >
+            reflyagency@gmail.com
+          </motion.p>
         </div>
 
-        <div className="bg-black text-white px-4 sm:px-8 md:px-16 py-8 sm:py-12 w-full md:w-[600px] rounded-[20px] md:rounded-none">
-          <div className="flex justify-end gap-4 sm:gap-8 mb-8 sm:mb-12 text-gray-400 text-xs sm:text-sm font-medium">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.4, duration: 0.7 }}
+          className="bg-black text-white px-4 sm:px-8 md:px-16 py-8 sm:py-12 w-full md:w-[600px] rounded-[20px] md:rounded-none"
+        >
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.6, duration: 0.6 }}
+            className="flex justify-end gap-4 sm:gap-8 mb-8 sm:mb-12 text-gray-400 text-xs sm:text-sm font-medium"
+          >
             <a href="#" className="hover:text-white">
               Works
             </a>
@@ -136,35 +176,56 @@ export default function ContactForm() {
             <a href="#" className="text-white border-b border-white pb-1">
               Contacts
             </a>
-          </div>
+          </motion.div>
 
           {submitStatus === "success" && (
-            <div className="mb-6 p-4 bg-green-900/30 border border-green-600 rounded-md text-xs sm:text-sm">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="mb-6 p-4 bg-green-900/30 border border-green-600 rounded-md text-xs sm:text-sm"
+            >
               Thank you for your message! We'll get back to you soon.
-            </div>
+            </motion.div>
           )}
 
           {submitStatus === "error" && (
-            <div className="mb-6 p-4 bg-red-900/30 border border-red-600 rounded-md text-xs sm:text-sm">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="mb-6 p-4 bg-red-900/30 border border-red-600 rounded-md text-xs sm:text-sm"
+            >
               Sorry, there was an error sending your message. Please try again
               or email us directly.
-            </div>
+            </motion.div>
           )}
 
           <form
             onSubmit={handleSubmit}
             className="flex flex-col space-y-6 sm:space-y-8"
           >
-            <div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+            >
               <p className="text-xs sm:text-sm mb-2 sm:mb-3 text-gray-400">
                 I'm interested in...
               </p>
               <div className="flex flex-wrap gap-2 sm:gap-3">
-                {services.map((service) => (
-                  <button
+                {services.map((service, i) => (
+                  <motion.button
                     type="button"
                     key={service}
                     onClick={() => setSelected(service)}
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.15, duration: 0.5 }}
                     className={`px-3 sm:px-4 py-1 sm:py-2 border rounded-md text-xs sm:text-sm ${
                       selected === service
                         ? "bg-white text-black"
@@ -172,12 +233,17 @@ export default function ContactForm() {
                     }`}
                   >
                     {service}
-                  </button>
+                  </motion.button>
                 ))}
               </div>
-            </div>
+            </motion.div>
 
-            <div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4, duration: 0.6 }}
+            >
               <input
                 type="text"
                 name="name"
@@ -189,9 +255,14 @@ export default function ContactForm() {
               {errors.name && (
                 <p className="text-red-500 text-xs mt-1">{errors.name}</p>
               )}
-            </div>
+            </motion.div>
 
-            <div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.6, duration: 0.6 }}
+            >
               <input
                 type="email"
                 name="email"
@@ -203,9 +274,14 @@ export default function ContactForm() {
               {errors.email && (
                 <p className="text-red-500 text-xs mt-1">{errors.email}</p>
               )}
-            </div>
+            </motion.div>
 
-            <div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.8, duration: 0.6 }}
+            >
               <textarea
                 name="message"
                 placeholder="Tell us about your project"
@@ -217,9 +293,15 @@ export default function ContactForm() {
               {errors.message && (
                 <p className="text-red-500 text-xs mt-1">{errors.message}</p>
               )}
-            </div>
+            </motion.div>
 
-            <div className="flex items-center gap-2 text-gray-400 text-xs sm:text-sm">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 1, duration: 0.6 }}
+              className="flex items-center gap-2 text-gray-400 text-xs sm:text-sm"
+            >
               <label
                 htmlFor="attachment"
                 className="flex items-center gap-2 cursor-pointer hover:text-white"
@@ -238,17 +320,21 @@ export default function ContactForm() {
                   {formData.attachment.name}
                 </span>
               )}
-            </div>
+            </motion.div>
 
-            <button
+            <motion.button
               type="submit"
               disabled={isSubmitting}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 1.2, duration: 0.6 }}
               className="bg-white text-black font-medium py-2 sm:py-3 rounded-md hover:bg-gray-200 transition disabled:opacity-50 disabled:cursor-not-allowed text-xs sm:text-base"
             >
               {isSubmitting ? "Sending..." : "Send request"}
-            </button>
+            </motion.button>
           </form>
-        </div>
+        </motion.div>
       </div>
     </div>
   );
