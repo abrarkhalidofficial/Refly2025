@@ -31,11 +31,12 @@ export default function Footer() {
             That Inspire Growth
           </motion.h2>
 
-          <motion.button
+          <motion.a
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.4 }}
             viewport={{ once: true }}
+            href="#contact"
             className="bg-white text-gray-900 hover:bg-green-100 hover:scale-105 transition-all px-6 sm:px-8 py-2 sm:py-3 rounded-full font-medium flex items-center gap-2 sm:gap-3 shadow-md"
           >
             <svg
@@ -53,7 +54,7 @@ export default function Footer() {
               />
             </svg>
             Start today
-          </motion.button>
+          </motion.a>
         </div>
       </motion.div>
 
