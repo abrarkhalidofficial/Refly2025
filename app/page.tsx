@@ -1,5 +1,4 @@
 import Footer from "@/components/footer";
-import TestimonialSection from "@/components/testimonial-section";
 import ContactForm from "@/components/form-section";
 import Header from "@/components/header";
 import HeroSection from "@/components/home-section";
@@ -9,11 +8,11 @@ import WebsiteDesign from "@/components/website-section";
 export default function Home() {
   return (
     <>
-      <Header /> <HeroSection />
+      <Header />
+      <HeroSection />
       <ScrollCard />
       <WebsiteDesign />
       <ContactForm />
-      <TestimonialSection />
       <Footer />
     </>
   );
