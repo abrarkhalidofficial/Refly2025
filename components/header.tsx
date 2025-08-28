@@ -10,10 +10,11 @@ const Header: React.FC = () => {
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
-        padding: "3rem",
+        padding: "1.5rem",
       }}
+      className="header"
     >
-      <img src="/logoBlack.png" alt="Logo" style={{ height: "60px" }} />
+      <img src="/logoBlack.png" alt="Logo" style={{ height: "48px" }} />
       <Link
         href="#contact"
         title="Lets Talk"
