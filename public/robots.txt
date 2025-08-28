@@ -1,0 +1,8 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://refly.agency
+# Sitemaps
+sitemap: https://refly.agency/sitemap.xml
