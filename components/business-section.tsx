@@ -1,40 +1,40 @@
-"use client";
+'use client';
 
-import { Card, CardContent } from "@/components/card";
-import { motion, Variants } from "framer-motion";
-import { Sparkles } from "lucide-react";
+import { Card, CardContent } from '@/components/card';
+import { motion, Variants } from 'framer-motion';
+import { Sparkles } from 'lucide-react';
 
 export default function BusinessSection() {
   const cards = [
     {
-      id: "01",
-      title: "Focused Strategy",
-      desc: "We help you define your vision and goals with strategic planning that drives measurable results.",
+      id: '01',
+      title: 'Focused Strategy',
+      desc: 'We help you define your vision and goals with strategic planning that drives measurable results.',
     },
     {
-      id: "02",
-      title: "Innovative Ideas",
-      desc: "We bring fresh perspectives and creative solutions that set your brand apart from the competition.",
+      id: '02',
+      title: 'Innovative Ideas',
+      desc: 'We bring fresh perspectives and creative solutions that set your brand apart from the competition.',
     },
     {
-      id: "03",
-      title: "Engaging Content",
-      desc: "We create compelling content that resonates with your audience and drives meaningful engagement.",
+      id: '03',
+      title: 'Engaging Content',
+      desc: 'We create compelling content that resonates with your audience and drives meaningful engagement.',
     },
     {
-      id: "04",
-      title: "Creative Design",
-      desc: "We craft beautiful, functional designs that capture your brand essence and delight users.",
+      id: '04',
+      title: 'Creative Design',
+      desc: 'We craft beautiful, functional designs that capture your brand essence and delight users.',
     },
     {
-      id: "05",
-      title: "Smart Execution",
-      desc: "We implement solutions with precision and attention to detail for optimal performance.",
+      id: '05',
+      title: 'Smart Execution',
+      desc: 'We implement solutions with precision and attention to detail for optimal performance.',
     },
     {
-      id: "06",
-      title: "Lasting Impact",
-      desc: "We build solutions that create sustainable growth and leave a lasting positive impact.",
+      id: '06',
+      title: 'Lasting Impact',
+      desc: 'We build solutions that create sustainable growth and leave a lasting positive impact.',
     },
   ];
 
@@ -54,7 +54,7 @@ export default function BusinessSection() {
     show: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: "easeOut" },
+      transition: { duration: 0.6, ease: 'easeOut' },
     },
   };
 
@@ -75,48 +75,23 @@ export default function BusinessSection() {
         </div>
 
         {/* Animate heading + paragraph one by one */}
-        <motion.div
-          variants={container}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.3 }}
-          className="grid lg:grid-cols-2 gap-12 items-start"
-        >
-          <motion.h1
-            variants={fadeUp}
-            className="text-4xl lg:text-6xl font-bold text-white mb-6 leading-tight"
-          >
+        <motion.div variants={container} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.3 }} className="grid lg:grid-cols-2 gap-12 items-start">
+          <motion.h1 variants={fadeUp} className="text-4xl lg:text-6xl font-bold text-white mb-6 leading-tight">
             Building Solutions
             <br /> That Inspire Growth
           </motion.h1>
 
-          <motion.p
-            variants={fadeUp}
-            className="text-gray-300 text-lg leading-relaxed"
-          >
-            We are a creative studio passionate about innovation, helping brands
-            unlock their full potential with smart strategies, stunning design,
-            and impactful execution.
+          <motion.p variants={fadeUp} className="text-gray-300 text-lg leading-relaxed">
+            We are a creative studio passionate about innovation, helping brands unlock their full potential with smart strategies, stunning design, and impactful execution.
           </motion.p>
         </motion.div>
       </section>
 
       {/* Cards Section */}
       <section className="px-6 max-w-8xl mx-auto">
-        <motion.div
-          variants={container}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.2 }}
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
-        >
+        <motion.div variants={container} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {cards.map((card) => (
-            <motion.div
-              key={card.id}
-              variants={fadeUp}
-              whileHover={{ scale: 1.04 }}
-              transition={{ type: "spring", stiffness: 300 }}
-            >
+            <motion.div key={card.id} variants={fadeUp} whileHover={{ scale: 1.04 }} transition={{ type: 'spring', stiffness: 300 }}>
               <Card
                 className="relative border border-gray-500 bg-black transition-all group
                 rounded-3xl shadow-md hover:shadow-xl hover:border-indigo-500/50 
@@ -124,10 +99,7 @@ export default function BusinessSection() {
               >
                 <CardContent className="p-8 relative z-10">
                   {/* Icon */}
-                  <motion.div
-                    whileHover={{ rotate: 10 }}
-                    className="absolute top-6 right-6"
-                  >
+                  <motion.div whileHover={{ rotate: 10 }} className="absolute top-6 right-6">
                     <div
                       className="w-12 h-12 rounded-full flex items-center justify-center 
                       bg-indigo-900 text-indigo-400 group-hover:bg-black group-hover:text-purple-400
@@ -138,10 +110,7 @@ export default function BusinessSection() {
                   </motion.div>
 
                   {/* Card Number */}
-                  <motion.div
-                    variants={fadeUp}
-                    className="text-3xl mb-6 font-bold text-white group-hover:text-indigo-300"
-                  >
+                  <motion.div variants={fadeUp} className="text-3xl mb-6 font-bold text-white group-hover:text-indigo-300">
                     {card.id}
                   </motion.div>
 

@@ -1,15 +1,15 @@
-"use client";
+'use client';
 
-import { useEffect, useLayoutEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from 'react';
 
-import { motion } from "framer-motion";
-import { usePathname } from "next/navigation";
+import { motion } from 'framer-motion';
+import { usePathname } from 'next/navigation';
 
 const timeOut = 2000;
 
 export const delayAnimationsFor = timeOut / 1000 - 0.5;
 
-import { ReactNode } from "react";
+import { ReactNode } from 'react';
 
 export default function Loader({ children }: { children?: ReactNode }) {
   const pathname = usePathname();
@@ -32,10 +32,10 @@ export default function Loader({ children }: { children?: ReactNode }) {
     isLoading && (
       <motion.div
         initial={{ scale: 1, borderRadius: 0 }}
-        animate={{ scale: 0, borderRadius: "100%" }}
+        animate={{ scale: 0, borderRadius: '100%' }}
         transition={{
           duration: 0.4,
-          ease: "easeInOut",
+          ease: 'easeInOut',
           delay: timeOut / 1000 - 0.4,
         }}
         className="loader"

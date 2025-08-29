@@ -1,30 +1,14 @@
-"use client";
+'use client';
 
-import Image from "next/image";
-import { motion } from "framer-motion";
+import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 const WebsiteDesign = () => {
   const images = [
-    [
-      "/projects/project1.png",
-      "/projects/project2.png",
-      "/projects/project3.png",
-    ],
-    [
-      "/projects/project4.png",
-      "/projects/project5.png",
-      "/projects/project6.png",
-    ],
-    [
-      "/projects/project7.png",
-      "/projects/project8.png",
-      "/projects/project9.png",
-    ],
-    [
-      "/projects/project10.png",
-      "/projects/project11.png",
-      "/projects/project12.png",
-    ],
+    ['/projects/project1.png', '/projects/project2.png', '/projects/project3.png'],
+    ['/projects/project4.png', '/projects/project5.png', '/projects/project6.png'],
+    ['/projects/project7.png', '/projects/project8.png', '/projects/project9.png'],
+    ['/projects/project10.png', '/projects/project11.png', '/projects/project12.png'],
   ];
 
   return (
@@ -34,7 +18,7 @@ const WebsiteDesign = () => {
         <motion.h1
           initial={{ opacity: 0, scale: 0.9, y: 40 }}
           whileInView={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
           viewport={{ once: true, amount: 0.3 }}
           className="text-3xl md:text-6xl text-center text-white fontClass"
         >
@@ -44,12 +28,11 @@ const WebsiteDesign = () => {
         <motion.p
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeInOut", delay: 0.2 }}
+          transition={{ duration: 0.8, ease: 'easeInOut', delay: 0.2 }}
           viewport={{ once: true, amount: 0.3 }}
           className="mt-4 text-lg font-normal text-neutral-300 max-w-lg text-center mx-auto px-4 urbanist"
         >
-          Creating, designing and developing websites that work for your
-          business.
+          Creating, designing and developing websites that work for your business.
         </motion.p>
       </div>
 
@@ -64,7 +47,7 @@ const WebsiteDesign = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{
                   duration: 0.8,
-                  ease: "easeInOut",
+                  ease: 'easeInOut',
                   delay: i * 0.1,
                 }}
                 viewport={{ once: false, amount: 0.2 }}

@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { motion } from "framer-motion";
-import { TextGradientScroll } from "./scroll-reveal";
+import { motion } from 'framer-motion';
+import { TextGradientScroll } from './scroll-reveal';
 
 export default function AboutSection() {
   return (
@@ -12,7 +12,7 @@ export default function AboutSection() {
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, ease: "easeOut" }}
+            transition={{ duration: 1, ease: 'easeOut' }}
             viewport={{ once: true }}
             className="w-full md:w-1/2 p-6 md:p-8 relative z-10 text-white flex items-center"
           >
@@ -25,18 +25,12 @@ export default function AboutSection() {
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.2, ease: "easeOut", delay: 0.3 }}
+            transition={{ duration: 1.2, ease: 'easeOut', delay: 0.3 }}
             viewport={{ once: true }}
             className="w-full md:w-1/2 relative flex items-center justify-center mt-8 md:mt-0"
           >
             <div className="w-full h-64 md:h-[450px] lg:h-[550px] rounded-2xl overflow-hidden shadow-2xl">
-              <video
-                autoPlay
-                muted
-                loop
-                playsInline
-                className="w-full h-full object-cover"
-              >
+              <video autoPlay muted loop playsInline className="w-full h-full object-cover">
                 <source src="/HeroSecondVideo.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
