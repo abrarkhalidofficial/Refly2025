@@ -41,7 +41,7 @@ export default function Loader({ children }: { children?: ReactNode }) {
         className="loader"
       >
         <motion.div className="loader__content__logo">
-          <img src="/logogif.gif" alt="logo" />
+          <img src="/loader.gif" alt="logo" />
         </motion.div>
         {/* <motion.div className="loader__content__text">
           <img src="/gif.gif" alt="" />
