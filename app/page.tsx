@@ -1,3 +1,4 @@
+import Chatbot from '@/components/chat-bot';
 import Footer from '@/components/footer';
 import ContactForm from '@/components/form-section';
 import Header from '@/components/header';
@@ -16,6 +17,7 @@ export default function Home() {
       <WebsiteDesign />
       <ContactForm />
       <Footer />
+      <Chatbot />
     </>
   );
 }
