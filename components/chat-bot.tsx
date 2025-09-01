@@ -15,7 +15,8 @@ export default function Chatbot() {
   const [messages, setMessages] = useState<Message[]>([
     {
       role: 'assistant',
-      content: '👋 Hello! Welcome to Refly. We help businesses grow with smart digital solutions 🚀. How can I assist you today?',
+      content:
+        '👋 Hello! I am the Refly Agency chatbot. We offer UI/UX design, branding, and video editing services. How can I assist you today? For further assistance, you can contact our support team at support@refly.agency.',
       error: false,
       whatsapp: null,
     },
@@ -23,6 +24,7 @@ export default function Chatbot() {
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
+
   const sendMessage = async () => {
     if (!input.trim()) return;
 
@@ -40,7 +42,6 @@ export default function Chatbot() {
 
       const data = await res.json();
 
-      // 👇 Save assistant message with error + whatsapp link if available
       setMessages((prev) => [
         ...prev,
         {
@@ -51,7 +52,6 @@ export default function Chatbot() {
         },
       ]);
     } catch (err) {
-      // 👇 Fallback if API itself crashes
       setMessages((prev) => [
         ...prev,
         {
@@ -80,10 +80,10 @@ export default function Chatbot() {
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 40, scale: 0.9 }}
           transition={{ duration: 0.3 }}
-          className="w-[90vw] sm:w-[400px] md:w-[450px] h-[70vh] sm:h-[550px] bg-gray-900 shadow-2xl rounded-2xl flex flex-col overflow-hidden border border-gray-800"
+          className="w-[90vw] sm:w-[400px] md:w-[450px] h-[70vh] sm:h-[550px] bg-gray-900 shadow-2xl rounded-2xl flex flex-col overflow-hidden border border-gray-700"
         >
-          <div className="bg-blue-700 text-white px-4 py-3 flex justify-between items-center">
-            <h2 className="font-semibold text-lg">Refly Chatbot</h2>
+          <div className="bg-red-600 text-white px-4 py-3 flex justify-between items-center">
+            <img src="/logo.png" alt="Refly Logo" className="w-22 h-auto rounded" />
             <button onClick={() => setOpen(false)}>
               <X className="w-5 h-5" />
             </button>
@@ -91,11 +91,11 @@ export default function Chatbot() {
 
           <div className="flex-1 p-4 space-y-3 overflow-y-auto text-sm">
             {messages.map((msg, i) => (
-              <div key={i} className={`p-3 rounded-xl max-w-[80%] ${msg.role === 'user' ? 'bg-blue-600 text-white ml-auto' : 'bg-gray-800 text-gray-100'}`}>
+              <div key={i} className={`p-3 rounded-xl max-w-[80%] ${msg.role === 'user' ? 'bg-red-600 text-white ml-auto' : 'bg-gray-800 text-gray-100'}`}>
                 {msg.error ? (
                   <div className="flex flex-col items-start space-y-2">
                     <p>{msg.content}</p>
-                    <a href={msg.whatsapp ?? undefined} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-green-600 text-white px-3 py-2 rounded-lg hover:bg-green-700">
+                    <a href={msg.whatsapp ?? undefined} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-red-600 text-white px-3 py-2 rounded-lg hover:bg-red-700">
                       Chat on WhatsApp
                     </a>
                   </div>
@@ -106,9 +106,7 @@ export default function Chatbot() {
             ))}
             {loading && <div className="text-gray-400 text-xs">Thinking...</div>}
           </div>
-
-          {/* Input */}
-          <div className="border-t border-gray-800 p-2 bg-gray-900 flex gap-2">
+          <div className="border-t border-gray-700 p-2 bg-gray-900 flex gap-2">
             <input
               ref={inputRef}
               type="text"
@@ -118,16 +116,14 @@ export default function Chatbot() {
               placeholder="Type a message..."
               className="flex-1 bg-gray-800 border border-gray-700 rounded-xl px-3 py-2 text-sm text-gray-100 placeholder-gray-400 focus:outline-none"
             />
-            <button onClick={sendMessage} disabled={loading} className="bg-blue-700 px-3 py-2 rounded-xl text-sm hover:bg-blue-800 disabled:opacity-50">
+            <button onClick={sendMessage} disabled={loading} className="bg-red-600 px-3 py-2 rounded-xl text-sm text-white hover:bg-red-700 disabled:opacity-50">
               Send
             </button>
           </div>
         </motion.div>
       )}
-
-      {/* Floating Button */}
       {!open && (
-        <motion.button onClick={() => setOpen(true)} className="bg-blue-700 text-white p-4 rounded-full shadow-lg hover:bg-blue-800 border border-gray-800" whileTap={{ scale: 0.9 }}>
+        <motion.button onClick={() => setOpen(true)} className="bg-red-600 text-white p-4 rounded-full shadow-lg hover:bg-red-700 border border-gray-700" whileTap={{ scale: 0.9 }}>
           <MessageCircle className="w-6 h-6" />
         </motion.button>
       )}
