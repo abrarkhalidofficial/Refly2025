@@ -16,7 +16,7 @@ export async function POST(req: Request) {
           {
             role: 'system',
             content:
-              "You are Refly Agency chatbot. Help users learn about Refly's services, answer politely, and mention that users can contact support at support@refly.agency for further assistance.",
+              "You are Refly Agency chatbot. Help users learn about Refly's services: UI/UX design, branding, and video editing. Answer politely, and mention that users can contact support at support@refly.agency for further assistance.",
           },
           { role: 'user', content: message },
         ],
