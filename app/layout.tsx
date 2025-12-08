@@ -9,10 +9,10 @@ const urbanist = Urbanist({
 });
 
 export const metadata: Metadata = {
-  title: 'Refly Agency',
-  description: 'Refly Agency is a creative digital agency specializing in web development, branding, and marketing solutions to help businesses grow online.',
+  title: 'Ziml Agency',
+  description: 'Ziml Agency is a creative digital agency specializing in web development, branding, and marketing solutions to help businesses grow online.',
   keywords: [
-    'Refly Agency',
+    'Ziml Agency',
     'Digital Agency',
     'Web Development',
     'Branding',
@@ -157,9 +157,9 @@ export const metadata: Metadata = {
     'AI Engine',
     'FutureMind AI',
   ],
-  authors: [{ name: 'Refly Agency', url: 'https://refly.agency' }],
-  creator: 'Refly Agency',
-  publisher: 'Refly Agency',
+  authors: [{ name: 'Ziml Agency', url: 'https://ziml.agency' }],
+  creator: 'Ziml Agency',
+  publisher: 'Ziml Agency',
   robots: {
     index: true,
     follow: true,
@@ -184,16 +184,16 @@ export const metadata: Metadata = {
     { media: '(prefers-color-scheme: dark)', color: '#000000' },
   ],
   openGraph: {
-    title: 'Refly Agency',
-    description: 'Refly Agency is a creative digital agency specializing in web development, branding, and marketing solutions to help businesses grow online.',
-    url: 'https://refly.agency',
-    siteName: 'Refly Agency',
+    title: 'Ziml Agency',
+    description: 'Ziml Agency is a creative digital agency specializing in web development, branding, and marketing solutions to help businesses grow online.',
+    url: 'https://ziml.agency',
+    siteName: 'Ziml Agency',
     images: [
       {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Refly Agency - Creative Digital Agency',
+        alt: 'Ziml Agency - Creative Digital Agency',
       },
     ],
     locale: 'en_US',
@@ -201,8 +201,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Refly Agency',
-    description: 'Refly Agency is a creative digital agency specializing in web development, branding, and marketing solutions to help businesses grow online.',
+    title: 'Ziml Agency',
+    description: 'Ziml Agency is a creative digital agency specializing in web development, branding, and marketing solutions to help businesses grow online.',
     site: '@ReflyAgency',
     creator: '@ReflyAgency',
     images: ['og-image.png'],
@@ -217,9 +217,9 @@ export default function RootLayout({
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'Refly Agency',
-    url: 'https://refly.agency',
-    logo: 'https://refly.agency/logo.png',
+    name: 'Ziml Agency',
+    url: 'https://ziml.agency',
+    logo: 'https://ziml.agency/logo.png',
     sameAs: [
       'https://www.forbes.com/top-companies/',
       'https://www.inc.com/inc5000',
