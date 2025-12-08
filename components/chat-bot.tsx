@@ -16,7 +16,7 @@ export default function Chatbot() {
     {
       role: 'assistant',
       content:
-        '👋 Hello! I am the Refly Agency chatbot. We offer UI/UX design, branding, and video editing services. How can I assist you today? For further assistance, you can contact our support team at support@refly.agency.',
+        '👋 Hello! I am the Ziml Agency chatbot. We offer UI/UX design, branding, and video editing services. How can I assist you today? For further assistance, you can contact our support team at support@ziml.agency.',
       error: false,
       whatsapp: null,
     },
@@ -83,7 +83,7 @@ export default function Chatbot() {
           className="w-[90vw] sm:w-[400px] md:w-[450px] h-[70vh] sm:h-[550px] bg-gray-900 shadow-2xl rounded-2xl flex flex-col overflow-hidden border border-gray-700"
         >
           <div className="bg-red-600 text-white px-4 py-3 flex justify-between items-center">
-            <img src="/logo.png" alt="Refly Logo" className="w-22 h-auto rounded" />
+            <img src="/logo.png" alt="Ziml AgencyLogo" className="w-22 h-auto rounded" />
             <button onClick={() => setOpen(false)}>
               <X className="w-5 h-5" />
             </button>
