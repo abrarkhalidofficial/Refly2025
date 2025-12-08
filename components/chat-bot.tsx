@@ -58,7 +58,7 @@ export default function Chatbot() {
           role: 'assistant',
           content: '⚠️ Unable to connect right now. Please contact us on WhatsApp:',
           error: true,
-          whatsapp: 'https://wa.me/923356226026?text=Hi%20Refly%20Team%2C%20I%20need%20help!',
+          whatsapp: 'https://wa.me/923356226026?text=Hi%20Ziml%20Team%2C%20I%20need%20help!',
         },
       ]);
     } finally {

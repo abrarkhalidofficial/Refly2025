@@ -171,7 +171,7 @@ export default function ContactForm() {
             transition={{ delay: 1.2, duration: 0.6 }}
             className="mt-4 sm:mt-6 text-xs sm:text-sm md:text-base"
           >
-            reflyagency@gmail.com
+            Zimlagency@gmail.com
           </motion.p>
         </div>
 

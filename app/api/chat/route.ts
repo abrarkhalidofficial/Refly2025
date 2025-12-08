@@ -16,7 +16,7 @@ export async function POST(req: Request) {
           {
             role: 'system',
             content:
-              "You are Ziml Agency chatbot. Help users learn about Refly's services: UI/UX design, branding, and video editing. Answer politely, and mention that users can contact support at support@ziml.agency for further assistance.",
+              "You are Ziml Agency chatbot. Help users learn about Ziml's services: UI/UX design, branding, and video editing. Answer politely, and mention that users can contact support at support@ziml.agency for further assistance.",
           },
           { role: 'user', content: message },
         ],
@@ -32,7 +32,7 @@ export async function POST(req: Request) {
     return NextResponse.json({
       reply: '⚠️ Unable to connect right now. Please contact us on WhatsApp:',
       error: true,
-      whatsapp: 'https://wa.me/923001234567?text=Hi%20Refly%20Team%2C%20I%20need%20help!',
+      whatsapp: 'https://wa.me/923001234567?text=Hi%20Ziml%20Team%2C%20I%20need%20help!',
     });
   }
 }

@@ -203,8 +203,8 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Ziml Agency',
     description: 'Ziml Agency is a creative digital agency specializing in web development, branding, and marketing solutions to help businesses grow online.',
-    site: '@ReflyAgency',
-    creator: '@ReflyAgency',
+    site: '@ZimlAgency',
+    creator: '@ZimlAgency',
     images: ['og-image.png'],
   },
 };
