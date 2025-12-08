@@ -9,7 +9,7 @@ export default function ContactSection() {
         {/* Left: Contact Info */}
         <div className="text-white space-y-10 md:col-span-1">
           <div>
-            <p className="text-sm uppercase tracking-[0.2em] text-[#e70505] mb-3">Refly Agency </p>
+            <p className="text-sm uppercase tracking-[0.2em] text-[#e70505] mb-3">Ziml Agency </p>
             <h1 className="text-4xl md:text-4xl font-bold leading-tight fontClass">Let's Elevate Your Brand</h1>
             <p className="text-gray-400 mt-4 text-lg leading-relaxed">Have a project, question, or want to collaborate? Reach out and let's create something amazing together. </p>
           </div>
@@ -17,7 +17,7 @@ export default function ContactSection() {
           <div className="space-y-6">
             <div>
               <p className="text-xs uppercase text-gray-500 mb-1">Email</p>
-              <p className="text-base font-medium">info@refly.agencys</p>
+              <p className="text-base font-medium">info@ziml.agencys</p>
             </div>
             <div>
               <p className="text-xs uppercase text-gray-500 mb-1">Location</p>
