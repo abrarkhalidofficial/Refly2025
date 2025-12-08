@@ -17,7 +17,7 @@ export default function AboutSection() {
             className="w-full md:w-1/2 p-6 md:p-8 relative z-10 text-white flex items-center"
           >
             <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-5xl font-urbanist font-extralight leading-tight z-20">
-              <TextGradientScroll text="Born in a supernova of code and creativity, Refly isn't just an agency it's a rebellion against boring. We’re the rogue pilots of the digital galaxy, fusing AI's raw horsepower with human spark to launch brands into orbits unseen. From UI/UX that hijacks hearts, video edits that detonate virality, to branding that rewrites destinies, our AI-driven crew thrives on chaos and precision." />
+              <TextGradientScroll text="Born in a supernova of code and creativity, Ziml Agencyisn't just an agency it's a rebellion against boring. We’re the rogue pilots of the digital galaxy, fusing AI's raw horsepower with human spark to launch brands into orbits unseen. From UI/UX that hijacks hearts, video edits that detonate virality, to branding that rewrites destinies, our AI-driven crew thrives on chaos and precision." />
             </h1>
           </motion.div>
 
