@@ -111,7 +111,7 @@ const softwareAgencies = {
 const KeywordList: React.FC = () => {
   return (
     <div className="p-4 bg-gray-50 rounded-lg shadow-md" style={{ display: 'none' }}>
-      <h2 className="text-xl font-bold mb-3">Welcome to Refly Agency</h2>
+      <h2 className="text-xl font-bold mb-3">Welcome to Ziml Agency</h2>
 
       <h3 className="text-lg font-semibold mt-2">Search Keywords</h3>
       <ul className="list-disc list-inside space-y-1 mb-4">
